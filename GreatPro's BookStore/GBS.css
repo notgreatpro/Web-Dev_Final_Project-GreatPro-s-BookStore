@@ -1,0 +1,820 @@
+@font-face {
+    font-family: Hoyo Font;
+    src: url(zh-cn.ttf);
+}
+@font-face {
+    font-family: HSR Font;
+    src: url(DINPro-Bold_13934.woff);
+}
+
+/* Reset margins and paddings */
+html, body {
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box; /* Ensure consistent box model */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Ensure no gap between navbar and welcome content */
+#navbar {
+    margin: 0;
+    padding: 15px 30px;
+    background-color: #ff69b4;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Hoyo Font;
+}
+
+/* Logo */
+#logo {
+    display: flex;
+    align-items: center;
+    height: 50px; /* Adjust logo size */
+}
+
+/* Navigation Links */
+#nav-links {
+    display: flex;
+    gap: 30px; /* Space between links */
+}
+
+#nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+    color: #050504;
+}
+
+#nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Light transparent hover effect */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Search Container */
+#search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between input and button */
+    flex-grow: 1; /* Allow the search container to grow if needed */
+    max-width: 400px; /* Limit the maximum width of the search bar */
+    width: 100%; /* Make it responsive */
+}
+
+#search-input {
+    flex-grow: 1; /* Allow the input to take up available space */
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    width: 100%; /* Ensure it adjusts dynamically */
+    transition: box-shadow 0.3s ease; /* Smooth focus effect */
+    font-family: HSR Font;
+}
+
+#search-input:focus {
+    box-shadow: 0 0 8px rgba(170, 76, 22, 0.5); /* Pink glow on focus */
+    outline: none;
+}
+
+#search-button {
+    flex-shrink: 0; /* Prevent the button from shrinking */
+    padding: 8px 20px;
+    background-color: white;
+    color: #0f0d0a;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+    font-family: HSR Font;
+}
+
+#search-button:hover {
+    background-color: #d12e1c; /* Light pink hover color */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Welcome Section */
+#welcome-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #fff5f8; /* Light pink background for a welcoming feel */
+    color: #2c0942; /* Dark purple text for contrast */
+    font-family: Hoyo Font;
+}
+
+/* Welcome Content Styling */
+#welcome-content {
+    position: relative;
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Stack text elements vertically */
+    justify-content: center; /* Center text vertically */
+    align-items: center; /* Center text horizontally */
+    text-align: center; /* Center-align the text */
+    padding: 0;
+    margin-top: -40px;
+    margin-right: -40px;
+    margin-left: -40px;
+    overflow: hidden;
+    height: 100vh; /* Full viewport height */
+}
+
+
+/* Image Styling */
+#welcome-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    
+}
+
+/* Welcome Text Styling */
+#welcome-content h1,
+#welcome-content p {
+    position: relative; /* Ensure text stays above the image */
+    z-index: 1; /* Place text above the image */
+    margin: 0;
+    padding: 13px;
+    max-width: 800px; /* Limit text width */
+    color: #ffffff; /* White text color */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add shadow for better contrast */
+    opacity: 0; /* Start hidden */
+    animation: fadeSlideScale 2s ease-in-out forwards; /* Enhanced animation */
+}
+
+/* Welcome Heading Animation */
+#welcome-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation-delay: 0.5s; /* Delay for the heading animation */
+    animation: fadeSlideScale 2s ease-in-out forwards, glow 1.5s infinite alternate; /* Add glowing effect */
+}
+
+/* Welcome Paragraph Animation */
+#welcome-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    animation-delay: 1s; /* Delay for the paragraph animation */
+    animation: fadeSlideScale 2s ease-in-out forwards;
+}
+
+/* Keyframes for Enhanced Animations */
+@keyframes fadeSlideScale {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9); /* Start below and slightly smaller */
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateY(25px) scale(1.05); /* Midpoint: slightly larger */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1); /* End at normal size and position */
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #e8377b, 0 0 20px #e8377b, 0 0 30px #e8377b;
+    }
+    to {
+        text-shadow: 0 0 20px #ff79b0, 0 0 30px #ff79b0, 0 0 40px #ff79b0;
+    }
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 3;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(1.1); /* Start slightly zoomed in */
+    }
+    to {
+        transform: scale(1); /* End at normal size */
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Start slightly below */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End at normal position */
+    }
+}
+
+/* Main Content */
+#main-content {
+    padding: 40px 20px;
+    color: #2c0942; /* Dark purple text for contrast */
+    
+}
+
+#typing-text {
+    color: black;
+}
+
+#main-content h1 {
+    font-size: 2.5rem;
+    color: #e8377b; /* Vibrant pink for the main heading */
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: HSR Font;
+}
+
+#main-content h2 {
+    font-size: 1.8rem;
+    color: #da2aa8; /* Pink for the updates heading */
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: HSR Font;
+    
+}
+
+#main-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: Hoyo Font;
+}
+
+#main-content ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#main-content li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-family: Hoyo Font;
+}
+
+/* Call to Action Section */
+#cta {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #fff5f8; /* Light pink background */
+    color: #2c0942;
+    margin-top: -40px;
+    margin-right: -40px;
+    margin-left: -40px;
+}
+
+#cta h2 {
+    font-size: 2rem;
+    color: #e8377b;
+    margin-bottom: 20px;
+}
+
+#cta p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+
+/* Call-to-Action Button */
+#cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #090607;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-family: HSR Font;
+}
+
+#cta-button:hover {
+    background-color: #bf63d5;
+}
+
+/* About Bookstore Section */
+#about-bookstore {
+    padding: 40px 20px;
+    color: #2c0942; /* Dark purple text for contrast */
+    font-family: Hoyo Font;
+}
+
+#about-bookstore h2 {
+    font-size: 2.5rem;
+    color: #e8377b; /* Vibrant pink for the heading */
+    margin-bottom: 20px;
+    text-align: center;
+    animation: fadeSlideScale 1.5s ease-in-out; /* Apply animation */
+}
+
+#about-bookstore p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    animation: fadeSlideScale 1.5s ease-in-out; /* Apply animation */
+    animation-delay: 0.5s; /* Delay for paragraphs */
+    animation-fill-mode: both; /* Ensure the animation stays in the final state */
+}
+
+#we-offer {
+    padding: 40px 20px;
+    color: #2c0942; /* Dark purple text for contrast */
+    font-family: Hoyo Font;
+}
+
+#we-offer h2 {
+    font-size: 2rem;
+    color: #e8377b; /* Vibrant pink for the heading */
+    margin-bottom: 20px;
+}
+
+#we-offer p {
+    text-align: left;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Bookstore Section */
+#bookstore {
+    padding: 40px 20px;
+    background-color: #fff5f8; /* Light pink background */
+    color: #2c0942; /* Dark purple text for contrast */
+    font-family: Hoyo Font;
+    text-align: center;
+}
+
+#bookstore-title {
+    font-size: 2rem;
+    color: #0f090c; 
+    margin-bottom: 20px;
+}
+
+#bookstore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust column size for better responsiveness */
+    gap: 20px; /* Space between books */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Book Item Styles */
+[id^="book-item-"] {
+    background-color: #ffffff; /* White background for books */
+    border: 1px solid #ccc; /* Subtle border */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    font-family: HSR Font;
+    text-align: center; /* Center-align content */
+    padding: 15px; /* Add padding for better spacing */
+}
+
+[id^="book-item-"]:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Book Item Images */
+[id^="book-item-"] img {
+    width: 100%; /* Make the image take the full width of its container */
+    height: auto; /* Maintain the aspect ratio */
+    object-fit: contain; /* Ensure the entire image is visible without cropping */
+    border-radius: 5px; /* Add slight rounding to the corners */
+    display: block; /* Ensure proper alignment within the container */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+/* Book Item Titles */
+[id^="book-item-title-"] {
+    font-size: 1.2rem;
+    color: #0a070c;
+    margin: 10px 0;
+    padding: 0 10px;
+    font-weight: bold;
+    text-align: center; /* Center-align text */
+}
+
+/* Book Item Authors */
+[id^="book-item-author-"] {
+    font-size: 1rem;
+    color: #0e0707;
+    margin: 0 0 10px;
+    padding: 0 10px;
+    text-align: center; /* Center-align text */
+}
+
+/* Book Item Descriptions */
+[id^="book-item-description-"] {
+    font-size: 0.9rem;
+    color: #1e1c1c;
+    margin: 0 0 10px;
+    padding: 0 10px;
+    line-height: 1.4;
+    text-align: center; /* Center-align text */
+}
+
+/* Book Item Prices */
+[id^="book-item-price-"] {
+    font-size: 1rem;
+    color: #13030a; 
+    font-weight: bold;
+    margin: 10px 0;
+    text-align: center; /* Center-align the price */
+}
+
+/* Book Item Buttons */
+[id^="book-item-button-"] {
+    display: inline-block; /* Inline-block for better alignment */
+    width: auto; /* Adjust width to fit content */
+    margin: 10px auto;
+    padding: 10px 20px; /* Add padding for better button size */
+    background-color: #e8377b;
+    color: #100d0d;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Add smooth hover effect */
+    font-family: Hoyo Font;
+    text-align: center; /* Center-align text */
+}
+
+[id^="book-item-button-"]:hover {
+    background-color: #fb042d; /* Slightly darker pink on hover */
+    transform: scale(1.05); /* Add a slight zoom effect */
+}
+
+/* Plus Tax Styling */
+.plus-tax {
+    font-size: 0.8rem;
+    color: #1a0c0c; /* Subtle gray color */
+    font-style: italic;
+    margin-left: 5px;
+    display: inline-block; /* Ensure proper alignment */
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    #bookstore-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust for smaller screens */
+    }
+
+    [id^="book-item-"] img {
+        height: 200px; /* Adjust image height for smaller screens */
+    }
+
+    [id^="book-item-button-"] {
+        width: 100%; /* Make buttons take full width */
+    }
+}
+
+.h1, .h2 {
+    position: absolute; /* Remove from normal document flow */
+    left: -9999px; /* Move it far off-screen */
+    width: 1px; /* Minimize width */
+    height: 1px; /* Minimize height */
+    overflow: hidden; /* Hide any overflowing content */
+    clip: rect(0, 0, 0, 0); /* Clip the element */
+    white-space: nowrap; /* Prevent line breaks */
+}
+
+/* Coming Soon Item */
+#coming-soon-item {
+    background-color: #f9f9f9;
+    border: none; /* Removed the border */
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    margin: 0 auto; /* Center horizontally */
+    max-width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: absolute; /* Position it at the bottom */
+    bottom: 20px; /* Distance from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+}
+
+#coming-soon-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+#coming-soon-title {
+    font-size: 1.5rem;
+    color: #0a070c;
+    margin: 10px 0;
+}
+
+#coming-soon-description {
+    font-size: 1rem;
+    color: #150d0d;
+    margin: 10px 0;
+}
+
+/* Coming Soon Buttons */
+#coming-soon-button,
+#cancel-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: Hoyo Font;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 5px 0; /* Add spacing between buttons */
+}
+
+/* Notify Me Button */
+#coming-soon-button {
+    background-color: #0e0709; /* Pink background */
+    color: #fff; /* White text */
+    font-weight: bold;
+}
+
+#coming-soon-button:hover {
+    background-color: #f1a415; /* Darker pink on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Cancel Button */
+#cancel-button {
+    background-color: #ccc; /* Gray background */
+    color: #050202; /* Dark text */
+}
+
+#cancel-button:hover {
+    background-color: #999; /* Darker gray on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Responsive Design for Buttons */
+@media (max-width: 768px) {
+    #coming-soon-button,
+    #cancel-button {
+        width: 100%; /* Make buttons take full width on smaller screens */
+        margin: 5px 0; /* Add spacing between buttons */
+    }
+}
+
+/* Footer Styles */
+#footer {
+    background-color: #2c0942; /* Dark background for contrast */
+    color: #f4f4f4; /* Light text for readability */
+    padding: 20px 0;
+    text-align: center;
+    border-top: 2px solid #444; /* Subtle border for separation */
+    font-family: Hoyo Font;
+}
+
+#footer-links {
+    margin-bottom: 10px;
+}
+
+#footer-links a {
+    color: #f4f4f4; /* Light text for links */
+    text-decoration: none;
+    font-size: 0.9rem; /* Smaller text for footer links */
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+#footer-links a:hover {
+    color: #a016ca; /* Highlight color on hover */
+}
+
+#footer-text {
+    color: #e9a7d3; /* Subtle text color for copyright */
+    font-size: 0.8rem; /* Smaller text for copyright */
+    margin-top: 10px;
+}
+
+#footer-title {
+    color: #e9a7d3; /* Subtle text color for copyright */
+    font-size: 0.8rem; /* Smaller text for copyright */
+    margin-top: 10px;
+}
+
+#footer-links a:focus {
+    outline: 2px dashed #ff6f61; /* Accessibility focus outline */
+    outline-offset: 4px;
+}
+
+/* Social Media Section */
+#social-media {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #2c0942;
+    color: #fff;
+}
+
+#social-media h2 {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+#social-media a {
+    color: #f1eaec;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.8rem;
+}
+
+#social-media a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    #navbar {
+        flex-direction: column; /* Stack navbar items vertically */
+        align-items: flex-start; /* Align items to the left */
+        padding: 10px 20px; /* Adjust padding for smaller screens */
+    }
+
+    #nav-links {
+        flex-direction: column; /* Stack links vertically */
+        gap: 15px; /* Adjust gap for vertical layout */
+        width: 100%; /* Make links take full width */
+    }
+
+    #search-container {
+        flex-direction: column; /* Stack input and button vertically */
+        align-items: stretch; /* Make input and button take full width */
+        width: 100%; /* Ensure the container takes full width */
+        margin-top: 10px; /* Add spacing above the search bar */
+    }
+
+    #search-input {
+        border-radius: 5px; /* Reset rounded corners for standalone input */
+        width: 100%; /* Make the input take full width */
+    }
+
+    #search-button {
+        border-radius: 5px; /* Reset rounded corners for standalone button */
+        width: 100%; /* Make the button take full width */
+        margin-top: 5px; /* Add spacing between input and button */
+    }
+}
+
+/* Contact Section Styling */
+#contact-section {
+    max-width: 800px; /* Match the width of other sections */
+    margin: 40px auto; /* Center the section */
+    padding: 0; /* Remove padding */
+    background-color: transparent; /* Remove background color */
+    box-shadow: none; /* Remove shadow */
+    text-align: left; /* Align text to the left */
+}
+
+#contact-section h1 {
+    text-align: center;
+    color: #e8377b;
+    margin-bottom: 20px;
+    font-family: Hoyo Font;
+}
+
+#contact-section p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #555;
+    font-family: HSR Font;
+}
+
+/* Contact Form */
+#contact-form {
+    display: flex;
+    flex-direction: column; /* Stack form elements vertically */
+    gap: 15px; /* Add spacing between form elements */
+    max-width: 600px; /* Limit the form width */
+    margin: 0 auto; /* Center the form */
+}
+
+/* Form Labels */
+#contact-form label {
+    font-weight: bold;
+    color: #333;
+    font-family: Hoyo Font;
+    margin-bottom: 5px;
+}
+
+/* Form Inputs and Textarea */
+#contact-form input,
+#contact-form textarea {
+    width: 100%; /* Ensure inputs take full width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: HSR Font;
+    transition: background-color 0.3s, color 0.3s;
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    background-color: #e8377b;
+    color: #fff;
+    outline: none;
+}
+
+/* Form Buttons */
+#form-buttons {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    gap: 10px; /* Add spacing between buttons */
+}
+
+#form-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: Hoyo Font;
+}
+
+#submit-button {
+    background-color: #13080c;
+    color: #fff;
+}
+
+#submit-button:hover {
+    background-color: #e60c9d;
+}
+
+#reset-button {
+    background-color: #ccc;
+    color: #333;
+}
+
+#reset-button:hover {
+    background-color: #999;
+}
+
+/* Error Message Styling */
+.error-message {
+    font-family: Hoyo Font; /* Set the font family */
+    font-size: 0.9rem; /* Adjust the font size */
+    color: red; /* Set the text color */
+    font-weight: bold; /* Make the text bold */
+    margin-top: 5px; /* Add spacing above the error message */
+    display: none; /* Hide by default */
+}
+
+/* Show error messages when needed */
+.error-message.visible {
+    display: block; /* Make the error message visible */
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    #contact-form {
+        padding: 0 10px; /* Add padding for smaller screens */
+    }
+
+    #form-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 5px; /* Reduce spacing between buttons */
+}
+
+#form-buttons button {
+        width: 100%; /* Make buttons take full width */
+    }
+}
+

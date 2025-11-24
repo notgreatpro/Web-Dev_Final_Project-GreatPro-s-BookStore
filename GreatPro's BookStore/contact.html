@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="GBS.css" />
+    <title>Contact Us</title>
+</head>
+<body>
+    <!-- the main navigation bar of the website-->
+    <nav id="navbar">
+        <img id="logo" src="GreatPros-BookStore-Logo.png" alt="GreatPro's Book Store Logo">
+        <div id="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Store</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div id="search-container">
+            <input id="search-input" type="text" placeholder="Search GreatPro's Book Store..." />
+            <button id="search-button">Search</button>
+        </div>
+    </nav>
+
+    <!-- Contact Form Section -->
+    <main id="contact-section">
+        <h1>Contact Us</h1>
+        <p>Having feedback is very important to us. If you have any questions or feedback regarding our
+            business or website, please fill out this form and we'll reply your concerns as soon as possible.
+            Thank you for your questions or feedback to us!
+        </p>
+        <form id="contact-form" action="index.html" method="post" novalidate>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" />
+            <span id="name-error" class="error-message" style="display: none; color: red;"></span>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your 10-digit phone number" />
+            <span id="phone-error" class="error-message" style="display: none; color: red;"></span>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" />
+            <span id="email-error" class="error-message" style="display: none; color: red;"></span>
+
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments" placeholder="Enter your comments or questions" rows="5"></textarea>
+            <span id="comments-error" class="error-message" style="display: none; color: red;"></span>
+
+            <div id="form-buttons">
+                <button type="submit" id="submit-button">Submit</button>
+                <button type="reset" id="reset-button">Reset</button>
+            </div>
+        </form>
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="footer">
+        <div id="footer-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Store</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <p id="footer-title">GreatPro's Book Store is trademark of GreatPro's Book Store Inc</p>
+        <p id="footer-text">© 2025 GreatPro's Book Store. All rights reserved.</p>
+        <div id="social-media">
+            <h2>Follow Us</h2>
+            <a href="https://www.facebook.com/login.php/" target="_blank">Facebook</a> |
+            <a href="https://x.com/login" target="_blank">Twitter/X</a> |
+            <a href="https://www.instagram.com/accounts/emailsignup/" target="_blank">Instagram</a>
+        </div>
+    </footer>
+    <script src="contact-validation.js"></script>
+</body>
+</html>
